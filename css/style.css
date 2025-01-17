@@ -1,0 +1,125 @@
+@charset 'utf-8';
+
+.inner {
+    width: 38rem;
+    margin: 0 auto;
+    /* background: rgba(255, 255, 0, 0.1); */
+}
+
+#header {
+    /* background: #000; */
+    position: absolute;
+    z-index: 1;
+    top: 2rem;
+    left: 0;
+    width: 100%;
+}
+
+#header nav {
+    display: flex;
+    height: 8rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gnb {
+    display: none;
+}
+
+.logo a {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    background: url(../img/logo-m.svg) no-repeat 50% / contain;
+}
+
+.util-menu {
+    display: flex;
+    gap: 1rem;
+}
+
+.util-menu button {
+    width: 4rem;
+    height: 4rem;
+    background: no-repeat 50%;
+    border: 1px solid var(--white70p);
+    border-radius: 50%;
+}
+
+.util-menu button.btn-menu {
+    background-image: url(../img/ico-menu.svg);
+}
+
+.util-menu button.btn-contact {
+    background-image: url(../img/ico-contact.svg);
+}
+
+.visual {
+    height: 52rem;
+    background: skyblue;
+    position: relative;
+}
+
+.video-wrap {
+    height: 100%;
+}
+
+.video-wrap::after {
+    content: '';
+    position: absolute;
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+    inset: 0;
+    background: var(--gradient);
+    opacity: 0.8;
+}
+
+.visual-title {
+    position: absolute;
+    top: 14.9rem;
+    left: 50%;
+    transform: translateX(-50%);
+    /* border: 1px solid #000; */
+    width: 38rem;
+}
+
+.visual-title h2 {
+    font-weight: 700;
+    font-size: 3.6rem;
+    color: #fff;
+    line-height: 44px;
+    line-height: 1.2; /* 44/36 */
+}
+
+.visual-title p {
+    font-weight: 500;
+    font-size: 2rem;
+    color: #fff;
+    line-height: 1.2; /* 24/20 줄간격은 font-size가 기준 */
+    margin-top: 2rem;
+}
+
+.btn {
+    width: 20.2rem;
+    height: 4.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
+.btn-cta {
+    background: #fff;
+    color: var(--main-color);
+    margin: 4.8rem auto 0;
+}
+
+.btn-black {
+    background: #000;
+    color: #fff;
+}
