@@ -70,6 +70,8 @@ button {
 body {
     font: 1.6rem/1.7 'Montserrat', sans-serif; /* 영문폰트와 한글폰트를 같이 쓸때는 영문먼저 숫자는 영문폰트를 따라감 */
     color: var(--text-color);
+    text-transform: capitalize; /* ttc: 첫글자를 대문자 */
+    word-break: keep-all; /* wbka: 어절 단위로 줄바꿈 */
 }
 
 .btn {
@@ -87,4 +89,19 @@ body {
 .btn-black {
     background: #000;
     color: #fff;
+}
+
+.text-gra {
+    /* 텍스트에 그라데이션 적용 */
+    background: var(--gradient);
+    /* -webkit-background-clip: text; */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.sec-title {
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.2;
 }
