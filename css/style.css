@@ -90,6 +90,9 @@
 .visual-title h2 {
     font-weight: 700;
     font-size: 3.6rem;
+
+    font-size: clamp(3.6rem, 4.6875vw, 6.8rem);
+
     color: #fff;
     line-height: 44px;
     line-height: 1.2; /* 44/36  lh픽셀/폰트사이즈 */
@@ -127,6 +130,7 @@
     display: block;
     width: 9rem;
     height: 9rem;
+    flex-shrink: 0; /* fxsh0 줄어들지마라 */
     background: no-repeat 50% / cover; /* cover= 100% auto */
 }
 
@@ -147,8 +151,10 @@
 }
 
 .introduce-list li dl {
-    width: 24.9rem;
+    /* width: 24.9rem;
     width: 65.5263%;
+    width: calc(100% - 9rem - 4rem); */
+    flex-grow: 1; /* fxgl: 늘어날 수 있다 */
 }
 
 .introduce-list li dl dt {
@@ -192,9 +198,11 @@
 .competitive-list li {
     border: 1px solid #fff;
     background: var(--white80p);
+    /* background: #5f5; */
     border-radius: 1rem;
     backdrop-filter: blur(5px);
     width: 38rem;
+    width: 100%;
     height: 12.5rem;
     flex-shrink: 0; /* fxsh0: flex때문에 줄어들지 않게 */
     padding: 1rem;
@@ -235,8 +243,6 @@
     overflow: hidden;
 }
 
-.product-list {
-}
 .product-list li {
     /* border: 1px solid #f00; */
     position: relative;
@@ -251,6 +257,7 @@
 
 .product-list li .product-con {
     width: 38rem;
+    width: 88.785%;
     min-height: 45rem;
     background: #f5f5f5;
 
@@ -268,6 +275,7 @@
 .product-list li .product-con h3 {
     font-weight: 700;
     font-size: 3rem;
+    font-size: clamp(3rem, 4vw, 4rem);
     line-height: 1.2;
 }
 
@@ -291,14 +299,16 @@
 }
 
 .newsletter-con {
-    width: 38rem;
+    /* width: 38rem; */
+    width: 88.785%;
 }
 
 .newsletter-con h4 {
     font-weight: 700;
-    font-size: 3rem;
+    font-size: clamp(3rem, 4vw, 4rem);
     line-height: 1.2;
     color: #fff;
+    text-align: center;
 }
 .newsletter-con .form-wrap {
     margin-top: 4.8rem;
@@ -360,4 +370,247 @@
 #footer p em {
     display: block;
     margin-top: 0.5rem;
+}
+
+/* 분기점 추가 */
+@media screen and (min-width: 768px) {
+    .introduce {
+        padding: 12rem 0;
+        padding: 11.7188vw 0;
+    }
+
+    .introduce-list {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .introduce-list li {
+        border: 1px solid #000;
+        width: 47.8rem;
+        width: 48.9754%;
+        width: calc((100% - 2rem) / 2);
+        min-height: 32rem;
+
+        flex-direction: column;
+        padding: 2rem 2.8rem;
+        gap: 2.4rem;
+        align-items: center;
+    }
+
+    .introduce-list li::before {
+        width: 11.3rem;
+        height: 11.3rem;
+    }
+
+    .introduce-list li dl {
+        width: 100%;
+    }
+
+    .introduce-list li dl dt {
+        display: block;
+        text-align: center;
+    }
+
+    .introduce-list li dl dd {
+        margin-top: 1.2rem;
+    }
+
+    .introduce .btn-black {
+        margin-top: 10rem;
+    }
+}
+
+/* 태블릿 디자인 */
+@media screen and (min-width: 1024px) {
+    .inner {
+        width: 97.6rem;
+        width: 95.3125%;
+    }
+
+    #header {
+        top: 0;
+    }
+
+    #header nav {
+        height: 9rem;
+    }
+
+    .logo a {
+        width: 23.8rem;
+        height: 4rem;
+        background-image: url(../img/foot-logo.png);
+    }
+
+    .visual-title {
+        width: 66rem;
+        width: 64.4531%;
+    }
+
+    .competitive {
+        padding: 10rem 0 20rem;
+    }
+
+    .competitive h2 + p {
+        font-size: 1.8rem;
+    }
+
+    .competitive-list-wrap {
+        overflow: initial;
+    }
+
+    .competitive-list {
+        flex-wrap: wrap;
+        gap: 2.8rem 2rem;
+    }
+
+    .competitive-list li {
+        flex-grow: 0; /* 늘어나는 */
+        flex-shrink: 1; /* 줄어드는 */
+        flex-basis: auto; /* 기본 점유 공간 */
+
+        /* 단축속성 */
+        flex: 1 1 45%;
+
+        width: initial;
+    }
+
+    .product-list li {
+        padding-bottom: 20rem;
+    }
+
+    .product-list li .product-con {
+        bottom: 0;
+    }
+
+    .product-list li .product-con p {
+        font-size: 1.8rem;
+    }
+
+    .newsletter-con {
+        width: 574px;
+        /* width: 56.0547%; */
+    }
+
+    .newsletter-con .form-wrap {
+        width: 40rem;
+        width: 69.6864%;
+        margin: 4.8rem auto 0;
+    }
+}
+
+/* 분기점 추가 */
+@media screen and (min-width: 1200px) {
+    .inner {
+        width: 150rem;
+        width: 78.125%;
+        width: 86%;
+    }
+    .product-list li {
+        padding: 0;
+        display: flex;
+    }
+
+    /* .product-list li:nth-child(even)  */
+    .product-list li:nth-child(2n) {
+        flex-direction: row-reverse; /* fxdrr */
+    }
+
+    .product-list li figure {
+        width: 50%;
+        height: 56.4rem;
+    }
+
+    .product-list li .product-con {
+        position: initial;
+        transform: initial;
+        width: 50%;
+        padding: 6rem;
+    }
+}
+
+/* PC 디자인  .inner의 크기 */
+@media screen and (min-width: 1500px) {
+    .inner {
+        width: 150rem;
+    }
+
+    .gnb {
+        display: flex;
+        margin-left: auto; /* mla 오른쪽으로 밀기 */
+        margin-right: 2.8rem;
+    }
+
+    .gnb li a {
+        display: block;
+        padding: 2rem;
+        /* border: 1px solid #000; */
+        color: #fff;
+        font-weight: 600;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .util-menu button.btn-menu {
+        display: none;
+    }
+
+    .util-menu button.btn-contact {
+        background-image: none;
+        width: 10.6rem;
+        border-radius: 5rem;
+    }
+
+    .util-menu button.btn-contact i {
+        position: initial;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .visual {
+        height: 93.4rem;
+        height: 100vh; /* 뷰포트기준 세로크기 꽉차게 */
+    }
+
+    .visual-title {
+        width: 90.5rem;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .introduce-list {
+        flex-wrap: nowrap; /* fxwn 줄바꿈 하지마라 */
+    }
+
+    .introduce-list li {
+        width: calc((100% - 6rem) / 4);
+    }
+
+    .competitive {
+        background-size: 40% auto;
+        padding: 12.4rem 0 13.6rem;
+    }
+
+    .competitive h2 + p {
+        width: 72%;
+    }
+
+    .competitive-list {
+        width: 108rem;
+        width: 72%;
+    }
+
+    .newsletter {
+        height: 60rem;
+    }
+
+    #footer .inner {
+        flex-direction: row; /* fxdr */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #footer p {
+        text-align: right; /* tar */
+    }
 }
